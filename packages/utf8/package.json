@@ -3,6 +3,12 @@
   "version": "1.0.1",
   "description": "UTF-8 encoder and decoder",
   "main": "./lib/utf8.js",
+  "exports": {
+    ".": {
+      "import": "./lib-es6/utf8.js",
+      "require": "./lib/utf8.js"
+    }
+  },
   "typings": "./lib/utf8.d.ts",
   "author": "Dmitry Chestnykh",
   "license": "MIT",
@@ -14,7 +20,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc --project tsconfig-es6.json",
     "test": "jasmine JASMINE_CONFIG_PATH=../../configs/jasmine.json",
     "bench": "node ./lib/utf8.bench.js"
   },
